@@ -38,23 +38,20 @@ def openFile():
 
 def saveFile():
     global filename
-    t = text.get(0.0, tk.END)
     try:
+        t = text.get(0.0, tk.END)
         f = open(filename, 'w')
         f.write(t)
         f.close()
     except Exception as err:
-        mb.showerror('Something Went Wrong')
+        mb.showerror('Something went wrong saving the file')
         logging.error(str(err))
 
 
 def saveAs():
     f = asksaveasfile(mode='w')
-    t = text.get(0.0, END)
+    t = text.get(0.0, tk.END)
     f.write(t.rstrip())
-    # except Exception as err:
-    #     mb.showerror(title='Error', message='Something Went Wrong')
-    #     logging.error(str(err))
 
 
 def About():
